@@ -13,11 +13,14 @@ Clone TflWebClient through git clone https://github.com/GabSys/TflWebClient
 
 Open TFL.WebClientConsole\TFL.WebClientConsole.sln in Visual Studio.
 
-Select the target Platform and Configuration (Debug/Release) and build the solution.
+Select the target Platform and Configuration (Debug/Release) and build the solution. The solution will need to pull 3 packages from nuget.
 
 Build output will be under TFL.WebClientConsole\TFL.WebClientConsole\bin\Debug\ or TFL.WebClientConsole\TFL.WebClientConsole\bin\Release\.
 
 ## Running TflWebClient
+
+Edit the TFL.WebClientConsole.exe.congif file in folder $\TFL.WebClientConsole\TFL.WebClientConsole\bin\Release to add you new app id and app key required to connect to the web api.
+
 Open Windows Power Shell or Command Line (cmd).
 
 Go to the git folder under $\TFL.WebClientConsole\TFL.WebClientConsole\bin\Release
