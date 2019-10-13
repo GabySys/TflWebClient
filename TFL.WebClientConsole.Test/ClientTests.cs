@@ -18,11 +18,11 @@ namespace TFL.WebClientConsole.Test
             HttpResponseMessage validResponse = CreateValidResponse();
 
             Mock<IClient> clientWrapper = new Mock<IClient>();
-            clientWrapper.Setup(x => x.GetAsync("validid", "id", "key"))
+            clientWrapper.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(Task.FromResult(validResponse));
             Client client = new Client(clientWrapper.Object);
 
-            RoadCorridor roadInfo = client.Run("validid", "id", "key").GetAwaiter().GetResult();
+            RoadCorridor roadInfo = client.Run(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()).GetAwaiter().GetResult();
 
             Assert.IsFalse(string.IsNullOrEmpty(roadInfo.DisplayName));
         }
@@ -35,11 +35,11 @@ namespace TFL.WebClientConsole.Test
             HttpResponseMessage validResponse = CreateValidResponse();
 
             Mock<IClient> clientWrapper = new Mock<IClient>();
-            clientWrapper.Setup(x => x.GetAsync("validid", "id", "key"))
+            clientWrapper.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(Task.FromResult(validResponse));
             Client client = new Client(clientWrapper.Object);
 
-            RoadCorridor roadInfo = client.Run("validid", "id", "key").GetAwaiter().GetResult();
+            RoadCorridor roadInfo = client.Run(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()).GetAwaiter().GetResult();
 
             Assert.IsFalse(string.IsNullOrEmpty(roadInfo.StatusSeverity));
         }
@@ -50,11 +50,11 @@ namespace TFL.WebClientConsole.Test
             HttpResponseMessage validResponse = CreateValidResponse();
 
             Mock<IClient> clientWrapper = new Mock<IClient>();
-            clientWrapper.Setup(x => x.GetAsync("validid", "id", "key"))
+            clientWrapper.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(Task.FromResult(validResponse));
             Client client = new Client(clientWrapper.Object);
 
-            RoadCorridor roadInfo = client.Run("validid", "id", "key").GetAwaiter().GetResult();
+            RoadCorridor roadInfo = client.Run(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()).GetAwaiter().GetResult();
 
             Assert.IsFalse(string.IsNullOrEmpty(roadInfo.StatusSeverityDescription));
         }
@@ -62,16 +62,16 @@ namespace TFL.WebClientConsole.Test
         [TestMethod]
         public void When_Run_GivenInvalidRoadId_ShouldThrowException()
         {
-            HttpResponseMessage validResponse = CreateInvalidResponse();
+            HttpResponseMessage invalidResponse = CreateInvalidResponse();
 
             Mock<IClient> clientWrapper = new Mock<IClient>();
-            clientWrapper.Setup(x => x.GetAsync("validid", "id", "key"))
-                .Returns(Task.FromResult(validResponse));
+            clientWrapper.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(Task.FromResult(invalidResponse));
             Client client = new Client(clientWrapper.Object);
 
             try
             {
-                RoadCorridor roadInfo = client.Run("validid", "id", "key").GetAwaiter().GetResult();
+                RoadCorridor roadInfo = client.Run(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()).GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {
@@ -98,11 +98,11 @@ namespace TFL.WebClientConsole.Test
         private HttpResponseMessage CreateInvalidResponse()
         {
             Assembly asm = this.GetType().Assembly;
-            using (Stream stream = asm.GetManifestResourceStream("TFL.WebClientConsole.Test.ValidResponse.Json"))
+            using (Stream stream = asm.GetManifestResourceStream("TFL.WebClientConsole.Test.InvalidResponse.Json"))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    HttpResponseMessage invalidResponse = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+                    HttpResponseMessage invalidResponse = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound);
                     invalidResponse.Content = new StringContent(reader.ReadToEnd(), Encoding.UTF8, "application/json");
                     return invalidResponse;
                 }

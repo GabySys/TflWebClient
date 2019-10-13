@@ -9,7 +9,7 @@ namespace TFL.WebClientConsole
             string appID = Properties.Settings.Default.AppId;            
             string appKey = Properties.Settings.Default.AppKey;
 
-            Client client = new Client(new ClientWrapper());
+            Client client = new Client(new HttpClientWrapper());
 
             if (args.Length == 0)
             {

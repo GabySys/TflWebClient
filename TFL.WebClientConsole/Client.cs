@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TFL.WebClientConsole
 {
+    /// <summary>
+    /// Main entry point to call the web api through a an http client wrapper
+    /// to get status information of a given road
+    /// </summary>
     public class Client
     {
         IClient clientWrapper;
@@ -15,6 +19,13 @@ namespace TFL.WebClientConsole
             this.clientWrapper = clientWrapper;
         }
 
+        /// <summary>
+        /// Runs the client to get status info given a roadID, appID and appKey
+        /// </summary>
+        /// <param name="roadId">road idetifier. Eg.: A2</param>
+        /// <param name="appId">an app id required by the web api to request road info</param>
+        /// <param name="appKey">an app key required by the web api to request road info</param>
+        /// <returns>road information</returns>
         public async Task<RoadCorridor> Run(string roadId, string appId, string appKey)
         {
             HttpResponseMessage response = await clientWrapper.GetAsync(roadId, appId, appKey);

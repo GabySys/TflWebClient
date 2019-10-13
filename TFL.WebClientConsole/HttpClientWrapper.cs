@@ -10,11 +10,11 @@ namespace TFL.WebClientConsole
         Task<HttpResponseMessage> GetAsync(string controller, string appId, string appKey);
     }
 
-    public class ClientWrapper : IClient
+    public class HttpClientWrapper : IClient
     {
         private string url;
 
-        public ClientWrapper(string url = "https://api.tfl.gov.uk/road/")
+        public HttpClientWrapper(string url = "https://api.tfl.gov.uk/road/")
         {
             this.url = url;
         }
