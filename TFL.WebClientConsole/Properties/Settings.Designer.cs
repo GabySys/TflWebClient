@@ -25,7 +25,7 @@ namespace TFL.WebClientConsole.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("d0f9ee53")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string AppId {
             get {
                 return ((string)(this["AppId"]));
@@ -37,7 +37,7 @@ namespace TFL.WebClientConsole.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("18064c33a567707dcd5c4de7d08d8985")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string AppKey {
             get {
                 return ((string)(this["AppKey"]));

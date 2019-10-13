@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TFL.WebClientConsole.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="AppName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">d0f9ee53</Value>
+    <Setting Name="AppId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AppKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)">18064c33a567707dcd5c4de7d08d8985</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
