@@ -13,7 +13,9 @@ Clone TflWebClient through git clone https://github.com/GabSys/TflWebClient
 
 Open TFL.WebClientConsole\TFL.WebClientConsole.sln in Visual Studio.
 
-Select the target Platform and Configuration (Debug/Release) and build the solution. The solution will need to pull 3 packages from nuget.
+Right click on the solution and select "Restore Nuget Packages" so that visual studio can pull nuget packages, which have not been uploaded to the git repository.
+
+Select the target Platform and Configuration (Debug/Release) and build the solution.
 
 Build output will be under TFL.WebClientConsole\TFL.WebClientConsole\bin\Debug\ or TFL.WebClientConsole\TFL.WebClientConsole\bin\Release\.
 
