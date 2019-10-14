@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TFL.WebClientConsole
 {
     /// <summary>
-    /// Main entry point to call the web api through a an http client wrapper
+    /// Main entry point to call the web api through an http client wrapper
     /// to get status information of a given road
     /// </summary>
     public class Client
